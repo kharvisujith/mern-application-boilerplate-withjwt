@@ -6,6 +6,11 @@ const { SignUpUser, SignInUser } = require("../controllers/loginController");
 //   res.status(200).send("logged in succesfully");
 // });
 
+
+router.get("/getreq",(req, res)=>{
+  return res.status(200).send("yesss working")
+})
+
 router.post("/signup", SignUpUser);
 
 router.post("/signin", SignInUser);
@@ -13,6 +18,7 @@ router.post("/signin", SignInUser);
 router.get("/students", async (req, res) => {
   const { page = 1, limit = 10, ...filters } = req.query;
   console.log("value of filters is", filters);
+  console.log("req quety is", req.query)
 
   try {
     // let filter = {};
@@ -23,7 +29,7 @@ router.get("/students", async (req, res) => {
     //     return acc;
     //   }, {});
     // }
-    console.log("Vlue of filter  second is", filter);
+    //console.log("Vlue of filter  second is", filter);
 
     // Apply filtering and pagination using Mongoose query methods
     //   const students = await Student.find(filter)
@@ -45,7 +51,7 @@ router.get("/students", async (req, res) => {
 
     // Send the response as JSON
     // res.json(response);
-    res.status(200).send("yessssssss");
+    res.status(200).send("studentsssss sucess");
   } catch (error) {
     console.error("Error retrieving students:", error);
     res.status(500).json({ error: "Internal server error" });
